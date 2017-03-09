@@ -1,5 +1,7 @@
 # FormatNumber
 
+[![Build Status](https://travis-ci.org/wycleffsean/format_number.svg?branch=master)](https://travis-ci.org/wycleffsean/format_number)
+
 A numeric type that is self formatting
 
 ## Installation

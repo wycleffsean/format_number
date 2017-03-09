@@ -1,8 +1,6 @@
 # FormatNumber
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/format_number`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A numeric type that is self formatting
 
 ## Installation
 
@@ -22,7 +20,12 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Use any method from `ActiveSupport::NumberHelper`
+
+```ruby
+fn = FormatNumber.new(5, :number_to_currency, unit: '!')
+puts fn * 12 # "!60.00"
+```
 
 ## Development
 

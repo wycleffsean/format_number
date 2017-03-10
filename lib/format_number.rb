@@ -3,6 +3,11 @@ autoload :ActiveSupport, 'active_support'
 
 class FormatNumber < SimpleDelegator
   autoload :VERSION, 'format_number/version'
+  autoload :Serializer, 'format_number/serializer'
+
+  def self.with(*args)
+    Serializer.new(*args)
+  end
 
   def initialize(val, formatter, options = {})
     raise ArgumentError, 'must be numeric' unless val.kind_of?(Numeric)
@@ -28,10 +33,13 @@ class FormatNumber < SimpleDelegator
   end
 
   def to_s
-    val = integer? ? to_i : to_f
-    ActiveSupport::NumberHelper.send(@formatter, val, @formatter_options)
+    ActiveSupport::NumberHelper.send(@formatter, value, @formatter_options)
   end
   alias to_str to_s
+
+  def value
+    integer? ? to_i : to_f
+  end
 
   private
 

@@ -29,6 +29,16 @@ fn = FormatNumber.new(5, :number_to_currency, unit: '!')
 puts fn * 12 # "!60.00"
 ```
 
+Use with ActiveRecord
+
+```ruby
+class Account < ActiveRecord::Base
+  serialize :balance, FormatNumber.with(:number_to_currency)
+end
+
+puts Account.first.balance # "$100.00"
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.

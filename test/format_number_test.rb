@@ -62,7 +62,7 @@ class FormatNumberTest < Minitest::Test
   end
 
   def test_html_safe
-    ActiveSupport::SafeBuffer.new('') + @fn
+    _ = ActiveSupport::SafeBuffer.new('') + @fn
     pass
   rescue
     flunk "doesn't concat with html_safe string"
